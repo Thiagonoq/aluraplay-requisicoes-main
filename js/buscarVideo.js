@@ -14,6 +14,16 @@ async function buscarVideo(evento) {
     }
     
     busca.forEach(elemento => lista.appendChild(constroiCard(elemento.titulo, elemento.descricao, elemento.url, elemento.imagem)));
+
+    if (busca.length == 0) {
+        lista.innerHTML = `<main class="mensagem">
+        <div>
+        <h3 class="mensagem__titulo">Não existem títulos com esse termo!</h3>
+        <img src="./img/erro.png" class="mensagem__imagem">
+        </div>
+        </main>
+        `
+    }
 }
 
 const botaoDePesquisa = document.querySelector("[data-botao-pesquisa]");
